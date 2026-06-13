@@ -9,8 +9,8 @@
 }
 
 :root {
-  --bg-main-1: #10141c;
-  --bg-main-2: #191e2a;
+  --bg-main-1: #191e2a;
+  --bg-main-2: #10141c;
   --bg-header: #000000cc;
 
   --white: #fff;
@@ -225,14 +225,14 @@ section {
   background-color: var(--accent-2);
 }
 
-.btn-group a:nth-of-type(2) {
+.btn-group .btn:nth-of-type(2) {
   background-color: var(--bg-main-1);
   color: var(--accent-1);
   border: 3px solid var(--accent-1);
   box-shadow: 0 0 25px transparent;
 }
 
-.btn-group a:nth-of-type(2):hover {
+.btn-group .btn:nth-of-type(2):hover {
   box-shadow: 0 0 25px var(--accent-2);
   background-color: var(--accent-2);
   color: var(--black);
@@ -286,11 +286,54 @@ section {
 .section-title {
   text-align: center;
   font-size: 2.5rem;
-  margin: 1rem 0;
+  margin: -1rem 0 1rem 0;
+}
+
+.projects {
+  background-color: var(--bg-main-1);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  border: 2px solid var(--accent-1);
+  border-radius: 3rem;
+  box-shadow: 0 0 5px var(--accent-1);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.project-card .btn {
+  text-wrap: nowrap;
+}
+
+.project-card:hover {
+  background-color: var(--bg-main-2);
+  border: 2px solid var(--accent-2);
+  box-shadow: 0 0 25px var(--accent-2),
+    0 0 50px var(--accent-2);
+  transform: scale(1.01);
+}
+
+.project-card img {
+  width: 20vw;
+  height: 25vh;
+  border-radius: 2rem;
 }
 
 .services {
-  background-color: var(--bg-main-1);
+  background-color: var(--bg-main-2);
   color: var(--black);
 }
 
@@ -353,49 +396,79 @@ section {
   margin-bottom: 1rem;
 }
 
-.projects {
-  background-color: var(--bg-main-2);
+.contact {
+  background-color: var(--bg-main-1);
 }
 
-.projects .section-title {
-  margin: -1rem 0 1rem 0;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-.project-card {
-  padding: 3rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.contact form {
+  min-width: 50rem;
+  margin: 1rem auto;
   text-align: center;
-  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.contact form .input-box {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  font-size: 0.8rem;
+  border-radius: 0.8rem;
+  background-color: var(--bg-main-1);
   border: 2px solid var(--accent-1);
-  border-radius: 3rem;
+  color: var(--white);
   box-shadow: 0 0 5px var(--accent-1);
-  cursor: pointer;
+  margin: 0.7rem 0;
+  resize: none;
   transition: var(--transition);
 }
 
-.project-card .btn {
-  text-wrap: nowrap;
+.contact form .input-box input {
+  width: 49%;
+  margin: 0.7rem 0.35rem;
 }
 
-.project-card:hover {
-  background-color: var(--bg-main-1);
+.contact form .input-box input:focus,
+.contact form textarea:focus {
   border: 2px solid var(--accent-2);
-  box-shadow: 0 0 25px var(--accent-2),
-    0 0 50px var(--accent-2);
-  transform: scale(1.01);
+  box-shadow: 0 0 25px var(--accent-2);
+  background-color: var(--bg-main-2);
+  outline: none;
 }
 
-.project-card img {
-  width: 20vw;
-  height: 25vh;
-  border-radius: 2rem;
+.contact form .btn-group {
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.footer {
+  background-color: var(--bg-main-2);
+  padding: 50px 0;
+}
+
+.footer .social-icons {
+  text-align: center;
+}
+
+.footer .nav-links {
+  justify-content: center;
+  font-size: 1rem;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.footer .nav-links a {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.footer .copyright {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
 }
