@@ -144,28 +144,23 @@
   </section>
 
   <section class="contact" id="contact">
+    <div class="contact-container">
+      <div class="contact-card">
+        <div class="contact-left"></div>
 
-    <h2 class="section-title">Contact <span>Me</span></h2>
-
-    <form action="#">
-      <div class="input-box">
-        <input type="text" placeholder="Full Name">
-        <input type="email" name="email" placeholder="Email Address">
+        <form class="contact-right">
+          <h2>Contact Me</h2>
+          <input type="text" class="field" placeholder="Name">
+          <input type="email" class="field" placeholder="Email">
+          <input type="text" class="field" placeholder="Phone Number">
+          <textarea class="field" placeholder="Message"></textarea>
+          <div class="btn-group">
+            <button type="submit" class="btn">Send</button>
+            <button type="reset" class="btn">Reset</button>
+          </div>
+        </form>
       </div>
-
-      <div class="input-box">
-        <input type="tel" inputmode="numeric" pattern="[0-9]*" placeholder="Phone Number (09XX XXX XXXX)"
-          autocomplete="tel">
-        <input type="text" placeholder="Subject">
-      </div>
-
-      <textarea name="message" id="" cols="30" rows="10" placeholder="Your message"></textarea>
-      <div class="btn-group">
-        <input type="submit" value="Send Message" class="btn">
-        <input type="reset" value="Clear" class="btn">
-      </div>
-    </form>
-
+    </div>
   </section>
 
   <footer class="footer">
