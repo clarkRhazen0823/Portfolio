@@ -19,6 +19,3 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
     menuIcon.classList.remove("fa-xmark");
   });
 });
-
-
-

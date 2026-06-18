@@ -134,18 +134,19 @@
       <div class="contact-card">
         <div class="contact-left"></div>
 
+        <!-- Contact Form -->
         <form class="contact-right">
           <h2>Contact Me</h2>
-          <input id="contact-name" type="text" class="field" placeholder="Name" required>
-          <input id="contact-email" type="email" class="field" placeholder="Email" required>
-          <input id="contact-phone-num" type="text" class="field" placeholder="Phone Number" required>
-          <textarea id="contact-msg" class="field" rows="5" placeholder="Message" required></textarea>
+          <input id="input-name" type="text" class="field" placeholder="Name" required>
+          <input id="input-email" type="email" class="field" placeholder="Email" required>
+          <input id="input-phone" type="text" class="field" placeholder="Phone Number" required>
+          <textarea id="input-msg" class="field" rows="5" placeholder="Message" required></textarea>
           <div class="btn-group">
-            <button type="submit" class="btn">Send</button>
+            <button type="submit" class="btn" onclick="sendMail()">Send</button>
             <button type="reset" class="btn">Reset</button>
           </div>
         </form>
-        
+
       </div>
     </div>
   </section>
@@ -172,7 +173,9 @@
       <i class="fa-regular fa-copyright"></i> Clark Rhazen Gregorios Ymbang | All rights reserved 2026
     </p>
   </footer>
-
+  
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script/email.js"></script>
   <script src="script/script.js"></script>
 </body>
 
