@@ -4,27 +4,32 @@
   });
 })();
 
-
-function sendMail(event){
+function sendMail(event) {
   event.preventDefault();
 
   let parms = {
-    name: document.getElementById("input-name").value,
+    firstName: document.getElementById("input-first").value,
+    lastName: document.getElementById("input-last").value,
     email: document.getElementById("input-email").value,
     phone: document.getElementById("input-phone").value,
+    subject: document.getElementById("input-subject").value,
     message: document.getElementById("input-msg").value,
   };
 
   emailjs
     .send("service_343483u", "template_49jo4vj", parms)
     .then(() => {
-      alert("> Email Sent, Wait for your Gmail to notify if your reciever recieved your message <");
-      
+      alert(
+        "Email sent successfuly, Wait for your Gmail to notify if your reciever recieved your message. Thank you.",
+      );
+
       event.target.reset();
     })
 
     .catch((error) => {
       console.error("EmailJS Error:", error);
-      alert("Oops! Something went wrong while sending the email.");
+      alert(
+        "Oops! Something went wrong while sending the email. Pleas try again.",
+      );
     });
 }

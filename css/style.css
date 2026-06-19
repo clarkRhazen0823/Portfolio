@@ -394,10 +394,6 @@ section {
   line-height: 1.5;
 }
 
-.contact {
-  background-color: var(--bg-main-2);
-}
-
 .service-info i {
   font-size: 4rem;
   margin-bottom: 1rem;
@@ -413,6 +409,10 @@ section {
   height: 100%;
   padding: 20px 100px;
   overflow: hidden;
+}
+
+.contact {
+  background-color: var(--bg-main-2);
 }
 
 .contact-card {
@@ -456,6 +456,11 @@ section {
   width: 100px;
   border-radius: 1rem;
   background: var(--gradient);
+}
+
+.field-group {
+  display: flex;
+  gap: 0.8rem;
 }
 
 .field {
