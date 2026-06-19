@@ -394,6 +394,10 @@ section {
   line-height: 1.5;
 }
 
+.contact {
+  background-color: var(--bg-main-2);
+}
+
 .service-info i {
   font-size: 4rem;
   margin-bottom: 1rem;
@@ -493,7 +497,7 @@ section {
 
 /* Footer */
 .footer {
-  background-color: var(--bg-main-2);
+  background-color: var(--black);
   padding: 50px 0;
 }
 
