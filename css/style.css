@@ -551,6 +551,10 @@ section {
   .contact-right {
     padding: 40px 30px;
   }
+
+  .field-group {
+    display: block;
+  }
 }
 
 /* Mobile Devices (Max Width: 768px) */
