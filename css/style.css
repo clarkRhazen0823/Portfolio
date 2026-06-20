@@ -529,6 +529,267 @@ section {
 }
 
 /* =========================================
+   MESSENGER STYLE PORTFOLIO LIGHTBOX
+   ========================================= */
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(25, 30, 42, 0.98);
+  /* Deep portfolio background */
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gallery-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Floating Top Bar */
+.messenger-top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2010;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent);
+}
+
+.project-info {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.project-info i {
+  color: var(--accent-1);
+}
+
+.action-icons .close-btn {
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.action-icons .close-btn:hover {
+  background: var(--gradient);
+  color: var(--black);
+  transform: scale(1.05);
+}
+
+/* Main Immersive Stage */
+.lightbox-main {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1rem 1rem 1rem;
+  min-height: 0;
+}
+
+.media-container {
+  width: 92%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-media {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+  transform: scale(0.96);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.gallery-modal.active .active-media {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* FB Messenger Style Navigation Arrows */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 10;
+}
+
+.nav-arrow:hover {
+  background: var(--gradient);
+  border-color: transparent;
+  color: var(--black);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow {
+  left: 2rem;
+}
+
+.next-arrow {
+  right: 2rem;
+}
+
+/* Bottom Panel (Caption + Clean Thumbs) */
+.bottom-panel {
+  position: relative;
+  width: 100%;
+  padding: 0.75rem 2rem 1rem;
+  background: var(--bg-main-2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 2010;
+  flex-shrink: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.media-caption {
+  color: var(--white);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Filmstrip Style Thumbnails */
+.thumbnails-grid {
+  display: flex;
+  gap: 0.6rem;
+  max-width: 100%;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.thumbnails-grid::-webkit-scrollbar {
+  height: 4px;
+}
+
+.thumbnails-grid::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.thumb {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  border-radius: 0.35rem;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.35;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.thumb:hover {
+  opacity: 0.8;
+}
+
+.thumb.active {
+  opacity: 1;
+  border-color: var(--accent-1);
+  box-shadow: 0 5px 15px rgba(247, 151, 30, 0.3);
+}
+
+.thumb img,
+.thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  z-index: 2;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .nav-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .prev-arrow {
+    left: 0.5rem;
+  }
+
+  .next-arrow {
+    right: 0.5rem;
+  }
+
+  .messenger-top-bar {
+    padding: 1rem;
+  }
+
+  .media-container {
+    width: 95%;
+  }
+
+  .thumb {
+    width: 55px;
+    height: 55px;
+  }
+
+  .media-caption {
+    font-size: 1rem;
+  }
+}
+
+/* =========================================
    RESPONSIVE MEDIA QUERIES
    ========================================= */
 
