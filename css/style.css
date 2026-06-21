@@ -228,6 +228,8 @@ section {
   background-color: var(--accent-2);
 }
 
+
+
 .btn-group .btn:nth-of-type(2) {
   background-color: var(--bg-main-1);
   color: var(--accent-1);
@@ -529,7 +531,7 @@ section {
 }
 
 /* =========================================
-   MESSENGER STYLE PORTFOLIO LIGHTBOX
+  MESSENGER STYLE PORTFOLIO LIGHTBOX
    ========================================= */
 .gallery-modal {
   position: fixed;
@@ -790,7 +792,7 @@ section {
 }
 
 /* =========================================
-   RESPONSIVE MEDIA QUERIES
+  RESPONSIVE MEDIA QUERIES
    ========================================= */
 
 /* Tablet & Contact Section Adjustments (Max Width: 880px) */

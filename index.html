@@ -46,7 +46,8 @@
 
       <div class="btn-group">
         <a href="#contact" class="btn"><i class="fa-solid fa-address-book"></i> Contact Me</a>
-        <a href="assets/documents/CV_ClarkRhazen_Ymbang.pdf" target="_blank" class="btn"><i class="fa-solid fa-file"></i> Download CV</a>
+        <a href="assets/documents/CV_ClarkRhazen_Ymbang.pdf" target="_blank" class="btn"><i
+            class="fa-solid fa-file"></i> Download CV</a>
       </div>
     </div>
 
@@ -203,7 +204,6 @@
       <div class="contact-card">
         <div class="contact-left"></div>
 
-        <!-- Contact Form -->
         <form class="contact-right" onsubmit="sendMail(event)">
           <h2>Contact Me</h2>
           <div class="field-group">
@@ -217,8 +217,7 @@
           </div>
           <textarea id="input-msg" class="field" rows="4" placeholder="Message" required></textarea>
           <div class="btn-group">
-            <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Send</button>
-            <!-- <button type="reset" class="btn">Reset</button> -->
+            <button type="submit" id="submit-btn" class="btn"><i class="fa-solid fa-envelope"></i> Send</button>
           </div>
         </form>
 
