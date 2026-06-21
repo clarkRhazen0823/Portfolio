@@ -8,7 +8,7 @@ const BTN_STATES = {
   default: '<i class="fa-solid fa-envelope"></i> Send',
   loading: '<i class="fa-solid fa-envelope fa-beat-fade"></i> Sending...',
   success:
-    '<i class="fa-solid fa-envelope-circle-check fa-bounce" style="--fa-animation-iteration-count: 1;"></i> Message sent',
+    '<i class="fa-solid fa-envelope-circle-check fa-bounce" style="--fa-animation-iteration-count: 1;"></i> Message Sent!',
   failed:
     '<i class="fa-solid fa-envelope fa-shake" style="--fa-animation-iteration-count: 1;"></i> Send',
 };
