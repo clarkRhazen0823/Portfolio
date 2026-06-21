@@ -942,26 +942,18 @@ section {
   }
 }
 
-
-
 /* =========================================
-   BUTTON LOADING (TURNING OFF) & SUCCESS STATES
+   BUTTON LOADING & SUCCESS STATES
    ========================================= */
-
-.btn:disabled {
-  background: #1e2433 !important;
-  color: #5c687e !important;
-  border: 1px solid #2a3143 !important;
-  box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.6) !important;
+.btn:disabled,
+.btn.success-state {
+  filter: brightness(0.6);
+  /* Darkens your native accent color */
+  box-shadow: none !important;
+  /* Disables the glowing shadow */
   cursor: not-allowed;
-  opacity: 0.85;
-  transform: scale(0.97);
-  transition: var(--transition);
-  pointer-events: auto;
-}
-
-.btn:disabled:hover {
-  background: #151a25 !important;
-  color: #4a5468 !important;
-  box-shadow: inset 0 6px 15px rgba(0, 0, 0, 0.8) !important;
+  pointer-events: none;
+  /* Prevents the hover effect from triggering */
+  transform: none !important;
+  /* Prevents any scaling/resizing */
 }

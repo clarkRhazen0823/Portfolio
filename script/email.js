@@ -9,9 +9,10 @@ const BTN_STATES = {
   loading: '<i class="fa-solid fa-envelope fa-beat-fade"></i> Sending...',
   success:
     '<i class="fa-solid fa-envelope-circle-check fa-bounce" style="--fa-animation-iteration-count: 1;"></i> Message sent',
+  failed:
+    '<i class="fa-solid fa-envelope fa-shake" style="--fa-animation-iteration-count: 1;"></i> Send',
 };
 
-// Helper function to manage button appearance
 const updateButtonUI = (btn, html, isDisabled, isSuccess = false) => {
   btn.innerHTML = html;
   btn.disabled = isDisabled;
@@ -27,28 +28,32 @@ async function sendMail(event) {
   const submitBtn = document.getElementById("submit-btn");
   const getVal = (id) => document.getElementById(id).value; // Shortcut for cleaner values
 
-  // 1. Set to Loading State
   updateButtonUI(submitBtn, BTN_STATES.loading, true);
 
-  // 2. Gather form data safely
+  // Gather form data safely and handle optional fields
+  const first = getVal("input-first");
+  const last = getVal("input-last");
+  const phoneVal = getVal("input-phone");
+  const subjectVal = getVal("input-subject");
+
   const parms = {
-    firstName: getVal("input-first"),
-    lastName: getVal("input-last"),
+    fullName: `${first} ${last}`.trim(), // Combines first and last name
+    firstName: first,
     email: getVal("input-email"),
-    phone: getVal("input-phone"),
-    subject: getVal("input-subject"),
+
+    // Optional Fields: If empty, provide a clean default message
+    phone: phoneVal ? phoneVal : "Not provided",
+    subject: subjectVal ? subjectVal : "General Inquiry",
+
     message: getVal("input-msg"),
   };
 
   try {
-    // 3. Await the email send process
     await emailjs.send("service_343483u", "template_49jo4vj", parms);
 
-    // 4. On Success: Update UI and clear form
     updateButtonUI(submitBtn, BTN_STATES.success, true, true);
     event.target.reset();
 
-    // 5. Alert the user and immediately reset button afterwards
     setTimeout(() => {
       alert(
         "Email sent successfully! Wait for your Gmail to notify if your receiver received your message. Thank you.",
@@ -56,14 +61,14 @@ async function sendMail(event) {
       updateButtonUI(submitBtn, BTN_STATES.default, false);
     }, 100);
   } catch (error) {
-    // 6. On Error: Log it, revert button UI instantly, and alert user
     console.error("EmailJS Error:", error);
-    updateButtonUI(submitBtn, BTN_STATES.default, false);
+    updateButtonUI(submitBtn, BTN_STATES.failed, false);
 
     setTimeout(() => {
       alert(
         "Oops! Something went wrong while sending the email. Please try again.",
       );
+      updateButtonUI(submitBtn, BTN_STATES.default, false);
     }, 100);
   }
 }
