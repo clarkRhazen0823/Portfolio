@@ -460,7 +460,7 @@ section {
 
 .field-group {
   display: flex;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .field {
@@ -711,9 +711,9 @@ section {
 
 .thumb.active {
   opacity: 1;
-  border-color: var(--accent-1);
+  border-color: var(--accent-2);
   transform: scale(1.12);
-  box-shadow: 0 0 15px rgba(247, 151, 30, 0.5);
+  box-shadow: 0 0 10px var(--accent-2);
 }
 
 .thumb img,
