@@ -1,9 +1,9 @@
-// Initialize EmailJS
+// === INITIALIZATION ===
 (function () {
   emailjs.init({ publicKey: "bncpQ8tUIxIxIu9rQ" });
 })();
 
-// Constants for Button HTML states
+// === STATE MANAGEMENT ===
 const BTN_STATES = {
   default: '<i class="fa-solid fa-envelope"></i> Send',
   loading: '<i class="fa-solid fa-envelope fa-beat-fade"></i> Sending...',
@@ -13,6 +13,7 @@ const BTN_STATES = {
     '<i class="fa-solid fa-envelope fa-shake" style="--fa-animation-iteration-count: 1;"></i> Send',
 };
 
+// === UI HANDLER ===
 const updateButtonUI = (btn, html, isDisabled, isSuccess = false) => {
   btn.innerHTML = html;
   btn.disabled = isDisabled;
@@ -21,29 +22,31 @@ const updateButtonUI = (btn, html, isDisabled, isSuccess = false) => {
     : btn.classList.remove("success-state");
 };
 
-// Main submit function
+// === MAIN SUBMIT FUNCTION ===
 async function sendMail(event) {
   event.preventDefault();
 
   const submitBtn = document.getElementById("submit-btn");
-  const getVal = (id) => document.getElementById(id).value; // Shortcut for cleaner values
+  const getVal = (id) => document.getElementById(id).value;
 
   updateButtonUI(submitBtn, BTN_STATES.loading, true);
 
-  // Gather form data safely and handle optional fields
   const first = getVal("input-first");
   const last = getVal("input-last");
   const phoneVal = getVal("input-phone");
   const subjectVal = getVal("input-subject");
 
   const parms = {
-    fullName: `${first} ${last}`.trim(), // Combines first and last name
+    fullName: `${first} ${last}`.trim(),
     firstName: first,
     email: getVal("input-email"),
 
-    // Optional Fields: If empty, provide a clean default message
-    phone: phoneVal ? phoneVal : "Not provided",
-    subject: subjectVal ? subjectVal : "General Inquiry",
+    // Injects a line break (\n) ONLY if they filled it out. Otherwise, completely blank.
+    phone: phoneVal ? `\n\nPhone: ${phoneVal}` : "",
+    subject: subjectVal ? `Subject: ${subjectVal}\n\n` : "",
+
+    // Auto-reply sentence variable
+    replySubject: subjectVal ? subjectVal : "your recent inquiry",
 
     message: getVal("input-msg"),
   };
