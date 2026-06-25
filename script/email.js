@@ -40,14 +40,11 @@ async function sendMail(event) {
     fullName: `${first} ${last}`.trim(),
     firstName: first,
     email: getVal("input-email"),
-
     // Injects a line break (\n) ONLY if they filled it out. Otherwise, completely blank.
     phone: phoneVal ? `\n\nPhone: ${phoneVal}` : "",
     subject: subjectVal ? `Subject: ${subjectVal}\n\n` : "",
-
     // Auto-reply sentence variable
     replySubject: subjectVal ? subjectVal : "your recent inquiry",
-
     message: getVal("input-msg"),
   };
 
