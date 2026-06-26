@@ -53,13 +53,10 @@ git clone https://github.com/clarkRhazen0823/Portfolio.git
 
 ## 📫 Let's Connect
 
-* 
-**Email:** clarkrhazen.ymbang0823@gmail.com 
+* **Email:** clarkrhazen.ymbang0823@gmail.com 
 
 
-* 
-**LinkedIn:** [Clark Rhazen Ymbang](https://www.linkedin.com/in/clark-rhazen-ymbang) 
+* **LinkedIn:** [Clark Rhazen Ymbang](https://www.linkedin.com/in/clark-rhazen-ymbang) 
 
 
-* 
-**GitHub:** [@clarkRhazen0823](https://github.com/clarkRhazen0823)
+* **GitHub:** [@clarkRhazen0823](https://github.com/clarkRhazen0823)
